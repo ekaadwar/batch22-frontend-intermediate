@@ -1,6 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toggleAuth } from "../../redux/action/auth";
 
 class Login extends React.Component {
+  componentDidMount() {
+    this.props.toggleAuth();
+  }
   render() {
     return (
       <section className="auth">
@@ -10,22 +15,11 @@ class Login extends React.Component {
               <div className="p-16 space-y-7">
                 <div className="flex justify-between mb-20">
                   <div className="flex items-center">
-                    <a href="index.html">
-                      <img
-                        className="inline"
-                        src="img/logo/coffee.png"
-                        alt="Coffe Shop"
-                      />
-                    </a>
-                    <a className="text-l font-bold ml-3" href="index.html">
-                      Coffee Shop
-                    </a>
+                    <span className="text-l font-bold ml-3">Coffee Shop</span>
                   </div>
-                  <a href="signUp.html">
-                    <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-2 rounded-full font-bold">
-                      Sign Up
-                    </button>
-                  </a>
+                  <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-2 rounded-full font-bold">
+                    Sign Up
+                  </button>
                 </div>
                 <h3 className="text-yellow-800 text-2xl font-bold text-center">
                   Login
@@ -79,4 +73,6 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = { toggleAuth };
+
+export default connect(null, mapDispatchToProps)(Login);
