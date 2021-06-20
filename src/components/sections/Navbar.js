@@ -1,13 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import Home from "../pages/Home";
-// import Product from "../pages/Product";
-// import Cart from "../pages/Cart";
-// import History from "../pages/History";
-// import Login from "../pages/Login";
-// import Signup from "../pages/Signup";
-
 class Navbar extends React.Component {
   render() {
     return (
