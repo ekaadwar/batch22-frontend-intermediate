@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+
 import Navbar from "./components/sections/Navbar";
 import Logo from "./img/logo/coffee.png";
 import Footer from "./components/sections/Footer";

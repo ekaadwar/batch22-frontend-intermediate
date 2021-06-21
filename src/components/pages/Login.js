@@ -1,13 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleAuth } from "../../redux/action/auth";
+import { toggleAuth, authLogin } from "../../redux/action/auth";
 import { FcGoogle } from "react-icons/fc";
 
 class Login extends React.Component {
+  state = {
+    email: "",
+    password: "",
+  };
+
+  onLogin = (event) => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    this.props.authLogin(email, password);
+  };
+
   componentDidMount() {
     this.props.toggleAuth();
   }
+
+  componentDidUpdate() {
+    const { token } = this.props.auth;
+    if (token !== null) {
+      this.props.toggleAuth();
+      this.props.history.push("/");
+    }
+  }
+
   render() {
+    const { errMsg } = this.props.auth;
     return (
       <section className="auth">
         <div className="container h-full mx-auto">
@@ -19,16 +40,22 @@ class Login extends React.Component {
                     <span className="text-l font-bold ml-3">Coffee Shop</span>
                   </div>
                   <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-2 rounded-full font-bold">
-                    Sign Up
+                    Sign Up {}
                   </button>
                 </div>
                 <h3 className="text-yellow-800 text-2xl font-bold text-center">
                   Login
                 </h3>
-                <form className="space-y-7">
+                {errMsg !== "" && (
+                  <div className="bg-red-300 text-red-700 font-bold p-2 rounded-md ">
+                    {errMsg}
+                  </div>
+                )}
+                <form onSubmit={this.onLogin} className="space-y-7">
                   <div>
                     <label className="bold">Email Address :</label>
                     <input
+                      onChange={(e) => this.setState({ email: e.target.value })}
                       className="px-5 py-3 bg-white border-2 border-gray-300 rounded-xl w-full"
                       type="email"
                       name="email"
@@ -38,6 +65,9 @@ class Login extends React.Component {
                   <div>
                     <label className="bold">Password:</label>
                     <input
+                      onChange={(e) =>
+                        this.setState({ password: e.target.value })
+                      }
                       className="px-5 py-3 bg-white border-2 border-gray-300 rounded-xl w-full"
                       type="password"
                       name="password"
@@ -71,7 +101,9 @@ class Login extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+const mapDispatchToProps = { toggleAuth, authLogin };
 
-const mapDispatchToProps = { toggleAuth };
-
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
