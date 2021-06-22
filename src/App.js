@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./components/pages/Home";
 import Product from "./components/pages/Product";
+import ProductDetail from "./components/pages/ProductDetail";
 import Cart from "./components/pages/Cart";
 import History from "./components/pages/History";
 import Login from "./components/pages/Login";
@@ -25,7 +26,8 @@ class App extends React.Component {
           {!onAuth && <Navbar image={Logo} />}
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/product" component={Product} />
+            <Route path="/product" exact component={Product} />
+            <Route path="/products/:id" component={ProductDetail} />
             <Route path="/cart" component={Cart} />
             <Route path="/history" component={History} />
             <Route path="/login" component={Login} />

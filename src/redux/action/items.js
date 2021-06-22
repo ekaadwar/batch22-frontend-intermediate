@@ -27,3 +27,13 @@ export const getItems = (url) => {
     };
   }
 };
+
+export const getDetail = (id) => {
+  return async (dispatch) => {
+    const { data } = await http().get(`${URL}/items/${id}`);
+    dispatch({
+      type: "ITEMS_GET_DETAIL",
+      payload: data.results,
+    });
+  };
+};

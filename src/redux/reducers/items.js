@@ -19,6 +19,12 @@ const items = (state = initialState, action) => {
         pageInfo: action.payload.pageInfo,
       };
     }
+    case "ITEMS_GET_DETAIL": {
+      return {
+        ...state,
+        datail: action.payload,
+      };
+    }
     default: {
       return {
         ...state,
