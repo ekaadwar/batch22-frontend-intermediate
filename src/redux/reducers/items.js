@@ -12,6 +12,13 @@ const items = (state = initialState, action) => {
         pageInfo: action.payload.pageInfo,
       };
     }
+    case "ITEMS_GET_NEXT": {
+      return {
+        ...state,
+        data: [...state.data, ...action.payload.items],
+        pageInfo: action.payload.pageInfo,
+      };
+    }
     default: {
       return {
         ...state,

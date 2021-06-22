@@ -1,11 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getItems } from "../../redux/action/items";
+import { Link } from "react-router-dom";
 
 class Product extends React.Component {
   componentDidMount() {
     this.props.getItems();
   }
+
+  loadMore = () => {
+    const { nextPage } = this.props.items.pageInfo;
+    this.props.getItems(nextPage);
+  };
 
   render() {
     const { data } = this.props.items;
@@ -17,7 +23,7 @@ class Product extends React.Component {
       <section className="product pt-20">
         <div className="border-t border-gray-300">
           <div className="container mx-auto">
-            <div className="content flex h-screen divide-x divide-gray-300 divide-solid">
+            <div className="content flex h-auto divide-x divide-gray-300 divide-solid">
               {/* <!-- bagian kiri --> */}
               <div className="side flex flex-col justify-between py-10">
                 {/* <!-- bagian promo --> */}
@@ -83,11 +89,12 @@ class Product extends React.Component {
                       <li className="inline-block">Add-on</li>
                     </ul>
                   </div>
-                  <div className="grid grid-cols-4 gap-y-20">
+                  <div className="grid grid-cols-4 gap-y-16">
                     {data.map((items) => (
-                      <div key={items.id.toString()}>
-                        {/* <div>{items.name}</div>
-                        <div>{items.price}</div> */}
+                      <Link
+                        to={`/products/${items.id}`}
+                        key={items.id.toString()}
+                      >
                         <div className="w-36 h-44 border rounded-2xl text-center bg-white">
                           <div className="w-24 h-24 -mt-12 mb-5 bg-yellow-200 rounded-full mx-auto"></div>
                           <div className="flex flex-col justify-between h-20">
@@ -97,8 +104,16 @@ class Product extends React.Component {
                             </h6>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     ))}
+                  </div>
+                  <div className="text-center">
+                    <button
+                      className="py-3 px-5 bg-yellow-500 text-white rounded-md"
+                      onClick={this.loadMore}
+                    >
+                      Show More
+                    </button>
                   </div>
                 </div>
               </div>
