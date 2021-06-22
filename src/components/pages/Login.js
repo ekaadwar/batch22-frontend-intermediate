@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleAuth, authLogin } from "../../redux/action/auth";
 import { FcGoogle } from "react-icons/fc";
@@ -37,7 +38,13 @@ class Login extends React.Component {
               <div className="p-16 space-y-7">
                 <div className="flex justify-between mb-20">
                   <div className="flex items-center">
-                    <span className="text-l font-bold ml-3">Coffee Shop</span>
+                    <Link
+                      // onClick={this.props.toggleAuth()}
+                      to="/"
+                      className="text-l font-bold ml-3"
+                    >
+                      Eka Coffee
+                    </Link>
                   </div>
                   <button className="bg-yellow-500 hover:bg-yellow-300 px-5 py-2 rounded-full font-bold">
                     Sign Up {}
