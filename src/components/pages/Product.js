@@ -1,24 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+import { getItems } from "../../redux/action/items";
 
 class Product extends React.Component {
-  state = {
-    data: [
-      {
-        name: "Calamari Steak",
-        price: 45000,
-      },
-      {
-        name: "Cordon Bleu",
-        price: 30000,
-      },
-      {
-        name: "Chiken Steak",
-        price: 40000,
-      },
-    ],
-  };
+  componentDidMount() {
+    this.props.getItems();
+  }
 
   render() {
+    const { data } = this.props.items;
+    // const data = [
+    //   { name: "Bakmi Mewah", Price: 20000 },
+    //   { name: "Nasi Goreng Pete", Price: 25000 },
+    // ];
     return (
       <section className="product pt-20">
         <div className="border-t border-gray-300">
@@ -80,7 +74,7 @@ class Product extends React.Component {
               {/* <!-- bagian kanan --> */}
               <div className="main h-full">
                 <div className="flex flex-col justify-between w-full h-full p-10">
-                  <div>
+                  <div className="mb-10">
                     <ul className="flex justify-evenly">
                       <li className="inline-block">Favorite Product</li>
                       <li className="inline-block">Coffee</li>
@@ -89,187 +83,22 @@ class Product extends React.Component {
                       <li className="inline-block">Add-on</li>
                     </ul>
                   </div>
-                  <div className="item grid grid-cols-4">
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
+                  <div className="grid grid-cols-4 gap-y-20">
+                    {data.map((items) => (
+                      <div key={items.id.toString()}>
+                        {/* <div>{items.name}</div>
+                        <div>{items.price}</div> */}
+                        <div className="w-36 h-44 border rounded-2xl text-center bg-white">
+                          <div className="w-24 h-24 -mt-12 mb-5 bg-yellow-200 rounded-full mx-auto"></div>
+                          <div className="flex flex-col justify-between h-20">
+                            <h4 className="text-xl font-bold">{items.name}</h4>
+                            <h6 className="font-bold text-yellow-900">
+                              {items.price}
+                            </h6>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="flex items-end w-36 h-56">
-                      <div className="w-36 h-44 border rounded-2xl text-center bg-white shadow-2xl">
-                        <div className="w-24 h-24 -mt-12 bg-yellow-200 rounded-full mx-auto"></div>
-                        <h4 className="text-xl font-bold">
-                          Veggie
-                          <br />
-                          tomato
-                          <br />
-                          mix
-                        </h4>
-                        <h6 className="font-bold text-yellow-900">
-                          IDR. 34.000
-                        </h6>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -281,4 +110,10 @@ class Product extends React.Component {
   }
 }
 
-export default Product;
+const mapStateToProps = (state) => ({
+  items: state.items,
+});
+
+const mapDispatchToProps = { getItems };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
