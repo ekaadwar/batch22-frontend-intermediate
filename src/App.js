@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import PrivateRoute from "./components/PrivateRoute";
 
 import Navbar from "./components/sections/Navbar";
-import Logo from "./img/logo/coffee.png";
 import Footer from "./components/sections/Footer";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Logo from "./img/logo/coffee.png";
 
 import Home from "./components/pages/Home";
 import Product from "./components/pages/Product";
@@ -28,10 +29,13 @@ class App extends React.Component {
             <Route path="/" exact component={Home} />
             <Route path="/product" component={Product} />
             <Route path="/products/:id" component={ProductDetail} />
-            <Route path="/cart" component={Cart} />
             <Route path="/history" component={History} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            {/* <Route path="/cart" component={Cart} /> */}
+            <PrivateRoute path="/cart">
+              <Cart />
+            </PrivateRoute>
           </Switch>
         </Router>
 
