@@ -15,6 +15,7 @@ import Cart from "./components/pages/Cart";
 import History from "./components/pages/History";
 import Login from "./components/pages/Login";
 import Signup from "./components/pages/Signup";
+import Profile from "./components/pages/Profile";
 
 import { connect } from "react-redux";
 
@@ -32,7 +33,11 @@ class App extends React.Component {
             <Route path="/history" component={History} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            {/* <Route path="/profile" component={Profile} /> */}
             {/* <Route path="/cart" component={Cart} /> */}
+            <PrivateRoute path="/profile">
+              <Profile />
+            </PrivateRoute>
             <PrivateRoute path="/cart">
               <Cart />
             </PrivateRoute>

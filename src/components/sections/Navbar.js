@@ -18,7 +18,10 @@ const Navbar = ({ auth }) => {
           </div>
           <div className="flex items-center space-x-16">
             {auth.token !== null ? (
-              <div className="h-7 w-7 bg-yellow-500 rounded-full" />
+              <Link
+                to="/profile"
+                className="h-7 w-7 bg-yellow-500 rounded-full"
+              />
             ) : (
               <>
                 <Link to="/login">Login</Link>
