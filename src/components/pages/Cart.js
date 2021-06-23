@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 
 class Cart extends React.Component {
   render() {
+    const { items } = this.props.carts;
     return (
-      <section className='cart pt-20 h-screen'>
+      <section className="cart pt-20 h-screen">
         <div className="container flex justify-center mx-auto h-full">
           <div className="inline-block space-y-10">
             <h2 className="text-3xl font-bold text-white text-shadow w-auto">
@@ -17,25 +19,14 @@ class Cart extends React.Component {
                   <h3 className="text-xl font-bold text-center text-yellow-900">
                     Order Summary
                   </h3>
-                  <div className="grid grid-cols-3">
-                    <div className="item h-12 w-12 bg-blue-200 rounded-xl overflow-hidden justify-center items-center">
-                      <img
-                        className="h-full w-full"
-                        src="img/produk/hazelnutLatte.png"
-                        alt="Hazelnut"
-                      />
-                    </div>
-                    <p className="item">Hazelnut x1 Regular</p>
-                    <p className="item justify-self-end">IDR 24.0</p>
-                    <div className="item h-12 w-12 bg-blue-200 rounded-xl overflow-hidden">
-                      <img
-                        className="h-full w-full"
-                        src="img/produk/chikenWing.png"
-                        alt="Chiken Fire Wings"
-                      />
-                    </div>
-                    <p className="item">Chiken Fire Wings</p>
-                    <p className="item justify-self-end">IDR 30.0</p>
+                  <div>
+                    {items.map((item) => (
+                      <div className="grid grid-cols-3">
+                        <div className="item h-12 w-12 bg-blue-200 rounded-xl overflow-hidden justify-center items-center"></div>
+                        <p className="item">{item.name}</p>
+                        <p className="item justify-self-end">{item.price}</p>
+                      </div>
+                    ))}
                   </div>
                   <div className="grid grid-cols-2">
                     <p>SUBTOTAL</p>
@@ -145,4 +136,8 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+const mapStateToProps = (state) => ({
+  carts: state.carts,
+});
+
+export default connect(mapStateToProps)(Cart);

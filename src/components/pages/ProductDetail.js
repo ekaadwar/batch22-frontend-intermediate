@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getDetails } from "../../redux/action/items";
+import { addItems } from "../../redux/action/carts";
 
 class DetailProduct extends React.Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class DetailProduct extends React.Component {
       <section className="detailProduct pt-20 pb-40 bg-gray-200">
         <div className="relaive container mx-auto">
           <p className="font-bold">
-            <span className="text-gray-500">Favorite & Promo</span>
+            <span className="text-gray-500 pr-2">Favorite & Promo</span>
             <span className="text-yellow-900">{details?.name}</span>
           </p>
           <div className="font-poppins grid grid-cols-9">
@@ -32,7 +33,10 @@ class DetailProduct extends React.Component {
                     <p className="text-3xl">IDR {details?.price}</p>
                   </div>
                   <div className="space-y-7">
-                    <button className="py-3 w-full bg-yellow-900 hover:bg-yellow-800 rounded-xl text-white text-2xl font-bold">
+                    <button
+                      onClick={() => this.props.addItems(details)}
+                      className="py-3 w-full bg-yellow-900 hover:bg-yellow-800 rounded-xl text-white text-2xl font-bold"
+                    >
                       Add to Cart
                     </button>
                     <button className="py-3 w-full bg-yellow-400 hover:bg-yellow-600 rounded-xl text-yellow-900 text-2xl font-bold">
@@ -153,6 +157,6 @@ const mapStateToProps = (state) => ({
   items: state.items,
 });
 
-const mapDispatchToProps = { getDetails };
+const mapDispatchToProps = { getDetails, addItems };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailProduct);

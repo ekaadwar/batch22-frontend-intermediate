@@ -8,7 +8,7 @@ const carts = (state = initialState, action) => {
     case "CARTS_ADD_ITEM": {
       return {
         ...state,
-        items: [...state.items, ...action.payload],
+        items: [...state.items, ...[action.payload]],
       };
     }
     default: {
