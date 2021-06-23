@@ -1,7 +1,6 @@
 const initialState = {
   onAuth: false,
   token: null,
-  owner: "Si Eka",
   errMsg: "",
 };
 

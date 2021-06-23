@@ -1,21 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getDetail } from "../../redux/action/items";
+import { getDetails } from "../../redux/action/items";
 
 class DetailProduct extends React.Component {
   componentDidMount() {
-    this.props.getDetail(this.props.match.params.id);
+    this.props.getDetails(this.props.match.params.id);
   }
 
   render() {
+    const { details } = this.props.items;
     return (
       <section className="detailProduct pt-20 pb-40 bg-gray-200">
         <div className="relaive container mx-auto">
           <p className="font-bold">
-            <a href="product.html">
-              <span className="text-gray-500">Favorite & Promo</span>
-            </a>{" "}
-            <span className="text-yellow-900"> Cold Brew</span>
+            <span className="text-gray-500">Favorite & Promo</span>
+            <span className="text-yellow-900">{details?.name}</span>
           </p>
           <div className="font-poppins grid grid-cols-9">
             <div className="col-span-4">
@@ -28,9 +27,9 @@ class DetailProduct extends React.Component {
                       alt="Cold Brew"
                     />
                   </div>
-                  <div className="space-y-7">
-                    <h2 className="text-6xl font-bold">COLD BREW</h2>
-                    <p className="text-3xl text-center">IDR 30.000</p>
+                  <div className="space-y-7 text-center">
+                    <h2 className="text-6xl font-bold">{details?.name}</h2>
+                    <p className="text-3xl">IDR {details?.price}</p>
                   </div>
                   <div className="space-y-7">
                     <button className="py-3 w-full bg-yellow-900 hover:bg-yellow-800 rounded-xl text-white text-2xl font-bold">
@@ -85,7 +84,7 @@ class DetailProduct extends React.Component {
                 <p className="text-xl font-bold text-center">
                   Choose Delivery Methods
                 </p>
-                <div>
+                <div className="flex justify-center space-x-5">
                   <button className="px-5 py-2 bg-yellow-900 hover:bg-yellow-800 rounded-xl text-l font-bold text-white">
                     Dine in
                   </button>
@@ -108,7 +107,7 @@ class DetailProduct extends React.Component {
               </div>
             </div>
           </div>
-          <div className="absolute z-10 container h-40 mt-20 mx-auto font-poppins">
+          <div className="container h-40 mt-20 mx-auto font-poppins">
             <div className="px-24 h-full">
               <div className="grid grid-cols-3 gap-24 h-full">
                 <div className="col-span-2 h-full px-10 bg-white rounded-2xl shadow-lg">
@@ -154,6 +153,6 @@ const mapStateToProps = (state) => ({
   items: state.items,
 });
 
-const mapDispatchToProps = { getDetail };
+const mapDispatchToProps = { getDetails };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailProduct);

@@ -28,11 +28,11 @@ export const getItems = (url) => {
   }
 };
 
-export const getDetail = (id) => {
+export const getDetails = (id) => {
   return async (dispatch) => {
     const { data } = await http().get(`${URL}/items/${id}`);
     dispatch({
-      type: "ITEMS_GET_DETAIL",
+      type: "ITEMS_GET_DETAILS",
       payload: data.results,
     });
   };

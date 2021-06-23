@@ -22,7 +22,7 @@ export const authLogin = (email, password) => {
     } catch (err) {
       dispatch({
         type: "AUTH_LOGIN_FAILED",
-        payload: err.response.data.message,
+        payload: err.response.data.message, //error from axios
       });
     }
   };
