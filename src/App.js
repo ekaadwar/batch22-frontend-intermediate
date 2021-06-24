@@ -30,11 +30,14 @@ class App extends React.Component {
             <Route path="/" exact component={Home} />
             <Route path="/product" component={Product} />
             <Route path="/products/:id" component={ProductDetail} />
-            <Route path="/history" component={History} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            {/* <Route path="/history" component={History} /> */}
             {/* <Route path="/profile" component={Profile} /> */}
             {/* <Route path="/cart" component={Cart} /> */}
+            <PrivateRoute path="/history">
+              <History />
+            </PrivateRoute>
             <PrivateRoute path="/profile">
               <Profile />
             </PrivateRoute>

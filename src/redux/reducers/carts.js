@@ -1,6 +1,13 @@
 const initialState = {
   items: [],
-  totalItem: 0,
+  amount: [],
+  countAmount: 1,
+  subTotal: 0,
+  tax: 0,
+  shipping: 0,
+  total: 0,
+  address: "",
+  method: "",
 };
 
 const carts = (state = initialState, action) => {
@@ -8,7 +15,15 @@ const carts = (state = initialState, action) => {
     case "CARTS_ADD_ITEM": {
       return {
         ...state,
-        items: [...state.items, ...[action.payload]],
+        items: [...state.items, ...[action.payload.items]],
+        amount: [...state.amount, ...[action.payload.amount]],
+        countAmount: 1,
+      };
+    }
+    case "COUNT_AMOUNT": {
+      return {
+        ...state,
+        countAmount: action.payload,
       };
     }
     default: {

@@ -2,8 +2,23 @@ import React from "react";
 import { connect } from "react-redux";
 
 class Cart extends React.Component {
+  subTotal = (items = 0, amount = 0) => {
+    return items
+      .map((item, index) => item.price * amount[index])
+      .reduce((acc, curr) => acc + curr);
+  };
+
+  tax = (cb) => {
+    const value = (cb * 10) / 100;
+    return value;
+  };
+
   render() {
-    const { items } = this.props.carts;
+    const { items, amount } = this.props.carts;
+    const subTotal = this.subTotal(items, amount);
+    const tax = this.tax(subTotal);
+    const shipping = 10000;
+    const total = subTotal + tax + shipping;
     return (
       <section className="cart pt-20 h-screen">
         <div className="container flex justify-center mx-auto h-full">
@@ -20,26 +35,30 @@ class Cart extends React.Component {
                     Order Summary
                   </h3>
                   <div>
-                    {items.map((item) => (
+                    {items.map((item, index) => (
                       <div className="grid grid-cols-3">
                         <div className="item h-12 w-12 bg-blue-200 rounded-xl overflow-hidden justify-center items-center"></div>
-                        <p className="item">{item.name}</p>
-                        <p className="item justify-self-end">{item.price}</p>
+                        <p className="item">
+                          {item.name} x{amount[index]}
+                        </p>
+                        <p className="item justify-self-end">
+                          {item.price * amount[index]}
+                        </p>
                       </div>
                     ))}
                   </div>
                   <div className="grid grid-cols-2">
                     <p>SUBTOTAL</p>
-                    <p className="justify-self-end">IDR 120.000</p>
+                    <p className="justify-self-end">IDR {subTotal}</p>
                     <p>TAX & FEES</p>
-                    <p className="justify-self-end">IDR 20.000</p>
+                    <p className="justify-self-end">IDR {tax}</p>
                     <p>SHIPPING</p>
-                    <p className="justify-self-end">IDR 10.000</p>
+                    <p className="justify-self-end">IDR {shipping}</p>
                   </div>
                   <div className="flex justify-between">
                     <h3 className="text-xl font-bold text-yellow-900">TOTAL</h3>
                     <h3 className="text-xl font-bold text-yellow-900">
-                      IDR 150.000
+                      IDR {total}
                     </h3>
                   </div>
                 </div>
@@ -123,7 +142,7 @@ class Cart extends React.Component {
                   </div>
                   <input
                     className="w-72 bg-yellow-900 text-white hover:bg-yellow-800 py-3 rounded-xl"
-                    type="submit"
+                    // type="submit"
                     value="Confirm and Pay"
                   />
                 </form>

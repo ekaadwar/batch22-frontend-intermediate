@@ -32,7 +32,7 @@ class Profile extends React.Component {
                 <p className="text-sm text-center">{data.email}</p>
               </div>
 
-              <p>Has been ordered 20 product</p>
+              <p>Let's order your product now!</p>
             </div>
             <div className="col-span-2">
               <div className="h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
@@ -64,18 +64,15 @@ class Profile extends React.Component {
                         value={data.phone}
                       />
                     </div>
-                    <div>
-                      <p className="text-xl text-gray-400">Delivery Address:</p>
-                      <textarea
-                        className="w-full border-b border-black"
-                        name="address"
-                        id="address"
-                        cols="30"
-                        rows="2"
-                      >
-                        {data.address}
-                      </textarea>
-                    </div>
+                  </div>
+                  <div>
+                    <p className="text-xl text-gray-400">Delivery Address:</p>
+                    <input
+                      className="py-2 w-full border-b border-black"
+                      type="text"
+                      name="address"
+                      value={data.address}
+                    />
                   </div>
                 </div>
               </div>
@@ -126,6 +123,7 @@ class Profile extends React.Component {
                           id="male"
                           name="gender"
                           value="male"
+                          checked={data.gender === "male" && true}
                         />
                         <label
                           className="text-xl text-yellow-700 hover:text-yellow-900"
@@ -141,6 +139,7 @@ class Profile extends React.Component {
                           id="female"
                           name="gender"
                           value="female"
+                          checked={data.gender === "female" && true}
                         />
                         <label
                           className="text-xl text-yellow-700 hover:text-yellow-900"

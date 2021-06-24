@@ -1,15 +1,50 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getDetails } from "../../redux/action/items";
-import { addItems } from "../../redux/action/carts";
+import { addItems, countAmount } from "../../redux/action/carts";
 
 class DetailProduct extends React.Component {
+  subData = () => {
+    const { countAmount } = this.props.carts;
+    const counter = countAmount - 1;
+    if (counter >= 1) {
+      this.props.countAmount(counter);
+    }
+  };
+
+  sumData = () => {
+    const { countAmount } = this.props.carts;
+    const counter = countAmount + 1;
+    if (counter <= 20) {
+      this.props.countAmount(counter);
+    }
+  };
+
+  // subTotal = (items = [], amount = []) => {
+  //   if (items !== []) {
+  //     return items
+  //       .map((item, index) => item.price * amount[index])
+  //       .reduce((acc, curr) => acc + curr);
+  //   }
+  // };
+
+  tax = (cb) => {
+    const value = (cb * 10) / 100;
+    return value;
+  };
+
   componentDidMount() {
     this.props.getDetails(this.props.match.params.id);
   }
 
   render() {
     const { details } = this.props.items;
+    const { countAmount } = this.props.carts;
+    // const { items, amount } = this.props.carts;
+    // const subTotal = this.subTotal(items, amount);
+    // const tax = this.tax(subTotal);
+    // const shipping = 10000;
+    // const total = subTotal + tax + shipping;
     return (
       <section className="detailProduct pt-20 pb-40 bg-gray-200">
         <div className="relaive container mx-auto">
@@ -21,20 +56,23 @@ class DetailProduct extends React.Component {
             <div className="col-span-4">
               <div className="pt-24 pr-24">
                 <div className="flex flex-col items-center space-y-16">
-                  <div className="overflow-hidden h-80 w-80 bg-gray-700 rounded-full">
-                    <img
-                      className="w-full"
-                      src="img/produk/coldBrew.png"
-                      alt="Cold Brew"
-                    />
-                  </div>
+                  <div className="overflow-hidden h-80 w-80 bg-gray-700 rounded-full"></div>
                   <div className="space-y-7 text-center">
                     <h2 className="text-6xl font-bold">{details?.name}</h2>
                     <p className="text-3xl">IDR {details?.price}</p>
                   </div>
                   <div className="space-y-7">
                     <button
-                      onClick={() => this.props.addItems(details)}
+                      onClick={() =>
+                        this.props.addItems({
+                          details,
+                          countAmount,
+                          // subTotal,
+                          // tax,
+                          // shipping,
+                          // total,
+                        })
+                      }
                       className="py-3 w-full bg-yellow-900 hover:bg-yellow-800 rounded-xl text-white text-2xl font-bold"
                     >
                       Add to Cart
@@ -117,27 +155,26 @@ class DetailProduct extends React.Component {
                 <div className="col-span-2 h-full px-10 bg-white rounded-2xl shadow-lg">
                   <div className="flex justify-between items-center h-full">
                     <div className="flex space-x-10">
-                      <div className="h-24 w-24 overflow-hidden rounded-full bg-gray-500">
-                        <img
-                          className="w-full"
-                          src="img/produk/coldBrew.png"
-                          alt="Cold Brew"
-                        />
-                      </div>
+                      <div className="h-24 w-24 overflow-hidden rounded-full bg-gray-500"></div>
                       <div>
-                        <h5 className="text-2xl font-bold">COLD BREW</h5>
-                        <p className="text-xl">x1 (Large)</p>
-                        <p className="text-xl">x1 (Regular)</p>
+                        <h5 className="text-2xl font-bold">{details?.name}</h5>
+                        <p className="text-xl">(Regular)</p>
                       </div>
                     </div>
                     <div className="flex space-x-5">
-                      <div className="flex justify-center items-center h-8 w-8 rounded-full bg-yellow-200 text-2xl font-bold text-yellow-900">
+                      <button
+                        className="flex justify-center items-center h-8 w-8 rounded-full bg-yellow-200 text-2xl font-bold text-yellow-900"
+                        onClick={this.subData}
+                      >
                         -
-                      </div>
-                      <p className="text-2xl font-bold">2</p>
-                      <div className="flex justify-center items-center h-8 w-8 rounded-full bg-yellow-200 text-2xl font-bold text-yellow-900">
+                      </button>
+                      <span className="text-2xl font-bold">{countAmount}</span>
+                      <button
+                        className="flex justify-center items-center h-8 w-8 rounded-full bg-yellow-200 text-2xl font-bold text-yellow-900"
+                        onClick={this.sumData}
+                      >
                         +
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -155,8 +192,9 @@ class DetailProduct extends React.Component {
 
 const mapStateToProps = (state) => ({
   items: state.items,
+  carts: state.carts,
 });
 
-const mapDispatchToProps = { getDetails, addItems };
+const mapDispatchToProps = { getDetails, addItems, countAmount };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailProduct);
