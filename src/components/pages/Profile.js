@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getProfile } from "../../redux/action/profile";
 
 class Profile extends React.Component {
   componentDidMount() {
-    this.props.getProfile(this.props.match.params.id);
+    const { token } = this.props.auth;
+    this.props.getProfile(token);
   }
+
   render() {
+    const { data } = this.props.profile;
     return (
+      // <div className="pt-40">Okay</div>
       <section className="profil pt-20">
         <div className="container mx-auto">
           <h3 className="text-4xl font-bold text-white py-10 text-shadow">
@@ -15,18 +20,16 @@ class Profile extends React.Component {
           <div className="data grid grid-cols-3 gap-x-8 gap-y-20">
             <div className="flex flex-col justify-between items-center py-10 h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
               <div className="relative">
-                <div className="overflow-hidden h-28 w-28 bg-blue-200 rounded-full">
-                  <img src="img/profile/gejeel.jpg" alt="Gajeel Redfox" />
-                </div>
+                <div className="overflow-hidden h-28 w-28 bg-blue-200 rounded-full"></div>
                 <div className="absolute flex justify-center items-center -mt-10 ml-20 h-10 w-10 bg-yellow-900 rounded-full">
                   <i className="fas fa-pencil-alt text-white"></i>
                 </div>
               </div>
               <div>
                 <h4 className="text-2xl font-bold text-center">
-                  Gajeel Redfox
+                  {data.name_shown}
                 </h4>
-                <p className="text-sm">metaldragonslayer@fairytail.com</p>
+                <p className="text-sm text-center">{data.email}</p>
               </div>
 
               <p>Has been ordered 20 product</p>
@@ -49,7 +52,7 @@ class Profile extends React.Component {
                         className="py-2 w-full border-b border-black"
                         type="email"
                         name="email"
-                        value="metaldragonslayer@fairytail.com"
+                        value={data.email}
                       />
                     </div>
                     <div>
@@ -58,7 +61,7 @@ class Profile extends React.Component {
                         className="py-2 w-full border-b border-black"
                         type="text"
                         name="phone"
-                        value="(+62)82132145421"
+                        value={data.phone}
                       />
                     </div>
                     <div>
@@ -70,7 +73,7 @@ class Profile extends React.Component {
                         cols="30"
                         rows="2"
                       >
-                        Iskandar Street no. 67 Block A Near Bus Stop
+                        {data.address}
                       </textarea>
                     </div>
                   </div>
@@ -95,7 +98,7 @@ class Profile extends React.Component {
                         className="py-2 w-full border-b border-black"
                         type="email"
                         name="email"
-                        value="metaldragonslayer@fairytail.com"
+                        value={data.name_shown}
                       />
                     </div>
                     <div>
@@ -103,8 +106,8 @@ class Profile extends React.Component {
                       <input
                         className="py-2 w-full border-b border-black"
                         type="text"
-                        name="phone"
-                        value="27/09/96"
+                        name="birth_date"
+                        value={data.birth_date}
                       />
                     </div>
                     <div className="col-span-2">
@@ -113,7 +116,7 @@ class Profile extends React.Component {
                         className="py-2 w-full border-b border-black"
                         type="email"
                         name="email"
-                        value="Gajeel"
+                        value={data.name_first}
                       />
                     </div>
                     <div className="row-span-2 space-y-5">
@@ -154,7 +157,7 @@ class Profile extends React.Component {
                         className="py-2 w-full border-b border-black"
                         type="email"
                         name="email"
-                        value="Redfox"
+                        value={data.name_last}
                       />
                     </div>
                   </div>
@@ -196,9 +199,12 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  auth: state.auth,
   profile: state.profile,
 });
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = { getProfile };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 // export default Profile;
