@@ -1,5 +1,6 @@
 const initialState = {
   onAuth: false,
+  userId: 3,
   token: null,
   errMsg: "",
 };
@@ -15,7 +16,8 @@ const auth = (state = initialState, action) => {
     case "AUTH_LOGIN": {
       return {
         ...state,
-        token: action.payload,
+        // userId: action.payload.userId,
+        token: action.payload.token,
       };
     }
     case "AUTH_LOGIN_FAILED": {

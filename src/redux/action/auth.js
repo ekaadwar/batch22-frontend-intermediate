@@ -17,7 +17,10 @@ export const authLogin = (email, password) => {
       const { data } = await http().post(`${URL}/auth/login`, form.toString());
       dispatch({
         type: "AUTH_LOGIN",
-        payload: data.results.token,
+        payload: {
+          userId: data.results.UserId,
+          token: data.results.token,
+        },
       });
     } catch (err) {
       dispatch({

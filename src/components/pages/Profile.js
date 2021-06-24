@@ -1,6 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class Profile extends React.Component {
+  componentDidMount() {
+    this.props.getProfile(this.props.match.params.id);
+  }
   render() {
     return (
       <section className="profil pt-20">
@@ -191,4 +195,10 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps)(Profile);
+
+// export default Profile;

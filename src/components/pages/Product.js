@@ -15,10 +15,6 @@ class Product extends React.Component {
 
   render() {
     const { data } = this.props.items;
-    // const data = [
-    //   { name: "Bakmi Mewah", Price: 20000 },
-    //   { name: "Nasi Goreng Pete", Price: 25000 },
-    // ];
     return (
       <section className="product pt-20">
         <div className="border-t border-gray-300">
