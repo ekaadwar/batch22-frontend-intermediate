@@ -1,5 +1,6 @@
 const initialState = {
   data: {},
+  errMsg: "",
 };
 
 const profile = (state = initialState, action) => {
@@ -8,6 +9,18 @@ const profile = (state = initialState, action) => {
       return {
         ...state,
         data: action.payload,
+      };
+    }
+    case "UPDATE_PROFILE": {
+      return {
+        ...state,
+        data: action.payload,
+      };
+    }
+    case "UPDATE_PROFILE_FAILED": {
+      return {
+        ...state,
+        errMsg: action.payload,
       };
     }
     default: {

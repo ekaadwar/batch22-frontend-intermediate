@@ -8,6 +8,10 @@ class Cart extends React.Component {
       .reduce((acc, curr) => acc + curr);
   };
 
+  prevent = (event) => {
+    event.preventDefault();
+  };
+
   tax = (cb) => {
     const value = (cb * 10) / 100;
     return value;
@@ -140,11 +144,13 @@ class Cart extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <input
-                    className="w-72 bg-yellow-900 text-white hover:bg-yellow-800 py-3 rounded-xl"
+                  <button
+                    onClick={this.prevent}
+                    className="w-72 bg-yellow-900 text-center text-white hover:bg-yellow-800 py-3 rounded-xl"
                     // type="submit"
-                    value="Confirm and Pay"
-                  />
+                  >
+                    Confirm and Pay
+                  </button>
                 </form>
               </div>
             </div>

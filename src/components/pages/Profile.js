@@ -1,12 +1,48 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getProfile } from "../../redux/action/profile";
+import { getProfile, updateProfile } from "../../redux/action/profile";
 
 class Profile extends React.Component {
+  state = {
+    email: "",
+    phone: "",
+    address: "",
+    name_shown: "",
+    name_first: "",
+    name_last: "",
+    birth_date: "",
+    gender: "",
+  };
+
   componentDidMount() {
     const { token } = this.props.auth;
     this.props.getProfile(token);
   }
+
+  updateData = () => {
+    const {
+      email,
+      phone,
+      address,
+      name_shown,
+      name_first,
+      name_last,
+      birth_date,
+      gender,
+    } = this.state;
+    const data = {
+      email,
+      phone,
+      address,
+      name_shown,
+      name_first,
+      name_last,
+      birth_date,
+      gender,
+    };
+    const token = this.props.auth.token;
+    this.props.updateProfile(data, token);
+  };
 
   render() {
     const { data } = this.props.profile;
@@ -49,29 +85,32 @@ class Profile extends React.Component {
                     <div>
                       <p className="text-xl text-gray-400">Email address :</p>
                       <input
-                        className="py-2 w-full border-b border-black"
+                        onChange={(e) =>
+                          this.setState({ email: e.target.value })
+                        }
+                        className="py-2 w-full border-b border-black  placeholder-gray-700"
                         type="email"
                         name="email"
-                        value={data.email}
+                        placeholder={data.email}
                       />
                     </div>
                     <div>
                       <p className="text-xl text-gray-400">Mobile Number :</p>
                       <input
-                        className="py-2 w-full border-b border-black"
+                        className="py-2 w-full border-b border-black placeholder-gray-700"
                         type="text"
                         name="phone"
-                        value={data.phone}
+                        placeholder={data.phone}
                       />
                     </div>
                   </div>
                   <div>
                     <p className="text-xl text-gray-400">Delivery Address:</p>
                     <input
-                      className="py-2 w-full border-b border-black"
+                      className="py-2 w-full border-b border-black placeholder-gray-700"
                       type="text"
                       name="address"
-                      value={data.address}
+                      placeholder={data.address}
                     />
                   </div>
                 </div>
@@ -92,28 +131,28 @@ class Profile extends React.Component {
                     <div className="col-span-2">
                       <p className="text-xl text-gray-400">Display Name</p>
                       <input
-                        className="py-2 w-full border-b border-black"
+                        className="py-2 w-full border-b border-black  placeholder-gray-700"
                         type="email"
                         name="email"
-                        value={data.name_shown}
+                        placeholder={data.name_shown}
                       />
                     </div>
                     <div>
                       <p className="text-xl text-gray-400">DD/MM/YY</p>
                       <input
-                        className="py-2 w-full border-b border-black"
+                        className="py-2 w-full border-b border-black placeholder-gray-700"
                         type="text"
                         name="birth_date"
-                        value={data.birth_date}
+                        placeholder={data.birth_date}
                       />
                     </div>
                     <div className="col-span-2">
                       <p className="text-xl text-gray-400">First Name:</p>
                       <input
-                        className="py-2 w-full border-b border-black"
+                        className="py-2 w-full border-b border-black placeholder-gray-700"
                         type="email"
                         name="email"
-                        value={data.name_first}
+                        placeholder={data.name_first}
                       />
                     </div>
                     <div className="row-span-2 space-y-5">
@@ -122,7 +161,7 @@ class Profile extends React.Component {
                           type="radio"
                           id="male"
                           name="gender"
-                          value="male"
+                          placeholder="male"
                           checked={data.gender === "male" && true}
                         />
                         <label
@@ -138,7 +177,7 @@ class Profile extends React.Component {
                           type="radio"
                           id="female"
                           name="gender"
-                          value="female"
+                          placeholder="female"
                           checked={data.gender === "female" && true}
                         />
                         <label
@@ -153,10 +192,10 @@ class Profile extends React.Component {
                     <div className="col-span-2">
                       <p className="text-xl text-gray-400">Last Name:</p>
                       <input
-                        className="py-2 w-full border-b border-black"
+                        className="py-2 w-full border-b border-black placeholder-gray-700"
                         type="email"
                         name="email"
-                        value={data.name_last}
+                        placeholder={data.name_last}
                       />
                     </div>
                   </div>
@@ -173,7 +212,10 @@ class Profile extends React.Component {
                 </h3>
 
                 <div className="space-y-5">
-                  <button className="bg-yellow-900 py-3 w-full text-white rounded-2xl hover:bg-yellow-800">
+                  <button
+                    onClick={this.updateData}
+                    className="bg-yellow-900 py-3 w-full text-white rounded-2xl hover:bg-yellow-800"
+                  >
                     Save Change
                   </button>
                   <button className="bg-yellow-400 py-3 w-full text-yellow-900 font-bold rounded-2xl hover:bg-yellow-500">
@@ -202,7 +244,7 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-const mapDispatchToProps = { getProfile };
+const mapDispatchToProps = { getProfile, updateProfile };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 

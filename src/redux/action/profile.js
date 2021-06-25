@@ -11,3 +11,20 @@ export const getProfile = (token) => {
     });
   };
 };
+
+export const updateProfile = (dataUpdate, token) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await http(token).put(`${URL}/users/profil`, dataUpdate);
+      dispatch({
+        type: "UPDATE_PROFILE",
+        payload: data.results,
+      });
+    } catch (err) {
+      dispatch({
+        type: "UPDATE_PROFILE_FAILED",
+        payload: err.response.data.message, //error from axios
+      });
+    }
+  };
+};
