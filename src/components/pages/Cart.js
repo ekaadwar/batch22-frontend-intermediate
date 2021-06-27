@@ -2,14 +2,26 @@ import React from "react";
 import { connect } from "react-redux";
 
 class Cart extends React.Component {
-  subTotal = (items = 0, amount = 0) => {
-    return items
-      .map((item, index) => item.price * amount[index])
-      .reduce((acc, curr) => acc + curr);
+  subTotal = (items = [], amount = 0) => {
+    if (items !== []) {
+      return items
+        .map((item, index) => item.price * amount[index])
+        .reduce((acc, curr) => acc + curr);
+    } else {
+      return 0;
+    }
   };
 
   prevent = (event) => {
     event.preventDefault();
+  };
+
+  ship = (subTotal) => {
+    let cost = 0;
+    if (subTotal !== 0) {
+      cost = 10000;
+    }
+    return cost;
   };
 
   tax = (cb) => {
@@ -19,9 +31,11 @@ class Cart extends React.Component {
 
   render() {
     const { items, amount } = this.props.carts;
+    // console.log(items[0]);
     const subTotal = this.subTotal(items, amount);
     const tax = this.tax(subTotal);
-    const shipping = 10000;
+    const shipping = this.ship(subTotal);
+
     const total = subTotal + tax + shipping;
     return (
       <section className="cart pt-20 h-screen">
