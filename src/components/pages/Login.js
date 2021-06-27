@@ -20,6 +20,10 @@ class Login extends React.Component {
     this.props.toggleAuth();
   }
 
+  toHome = () => {
+    this.props.toggleAuth();
+  };
+
   componentDidUpdate() {
     const { token } = this.props.auth;
     if (token !== null) {
@@ -39,7 +43,7 @@ class Login extends React.Component {
                 <div className="flex justify-between mb-20">
                   <div className="flex items-center">
                     <Link
-                      // onClick={this.props.toggleAuth()}
+                      onClick={this.toHome}
                       to="/"
                       className="text-l font-bold ml-3"
                     >
