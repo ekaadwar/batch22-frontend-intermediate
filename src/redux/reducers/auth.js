@@ -20,6 +20,12 @@ const auth = (state = initialState, action) => {
         token: action.payload.token,
       };
     }
+    case "AUTH_LOGOUT": {
+      return {
+        ...state,
+        token: null,
+      };
+    }
     case "AUTH_LOGIN_FAILED": {
       return {
         ...state,

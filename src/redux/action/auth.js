@@ -30,3 +30,7 @@ export const authLogin = (email, password) => {
     }
   };
 };
+
+export const authLogout = () => ({
+  type: "AUTH_LOGOUT",
+});

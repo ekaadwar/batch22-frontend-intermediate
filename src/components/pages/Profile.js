@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getProfile, updateProfile } from "../../redux/action/profile";
+import { authLogout } from "../../redux/action/auth";
 
 class Profile extends React.Component {
   state = {
@@ -18,6 +19,10 @@ class Profile extends React.Component {
     const { token } = this.props.auth;
     this.props.getProfile(token);
   }
+
+  logOut = () => {
+    this.props.authLogout();
+  };
 
   updateData = () => {
     const {
@@ -226,7 +231,10 @@ class Profile extends React.Component {
                   <p>Edit Password</p>
                   <span>{`>`}</span>
                 </button>
-                <button className="flex justify-between bg-white px-5 py-3 w-full text-yellow-900 font-bold rounded-2xl hover:bg-gray-300">
+                <button
+                  onClick={this.logOut}
+                  className="flex justify-between bg-white px-5 py-3 w-full text-yellow-900 font-bold rounded-2xl hover:bg-gray-300"
+                >
                   <p>Log Out</p>
                   <span>{`>`}</span>
                 </button>
@@ -244,7 +252,7 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-const mapDispatchToProps = { getProfile, updateProfile };
+const mapDispatchToProps = { getProfile, updateProfile, authLogout };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
