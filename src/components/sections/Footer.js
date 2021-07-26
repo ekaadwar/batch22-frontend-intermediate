@@ -6,8 +6,8 @@ class Footer extends React.Component {
       <>
         <footer className="bg-gray-200 py-10 border-t-2 border-gray-300">
           <div className="container mx-auto">
-            <div className="flex">
-              <div className="flex-1 space-y-7">
+            <div className="flex flex-col lg:flex-row lg:justify-between items-center space-y-10">
+              <div className="space-y-7">
                 <div className="flex items-center">
                   <img src={this.props.image} alt="Coffee Shop" />
                   <h4 className="text-l font-bold ml-3">Coffee Shop</h4>
@@ -28,9 +28,9 @@ class Footer extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="flex-1 flex justify-end">
-                <div className="w-2/3">
-                  <div className="foot-info grid grid-cols-2">
+              <div className="flex">
+                <div>
+                  <div className="grid grid-cols-2 gap-y-5">
                     <div className="text-xl font-bold">Product</div>
                     <div className="text-xl font-bold">Engage</div>
                     <div>Download</div>
