@@ -92,9 +92,9 @@ section.cart {
 }
 
 section.profil {
-  height: 1100px;
+  min-height: 1100px;
   background-image: url("./img/general/kopi.png");
-  background-position-y: -200px;
+  /* background-position-y: -200px; */
 }
 
 section.history {

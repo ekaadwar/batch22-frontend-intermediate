@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { getProfile, updateProfile } from "../../redux/action/profile";
 import { authLogout } from "../../redux/action/auth";
+import gajeel from "../../assets/gajeel.jpg";
+
+import { FiEdit2 } from "react-icons/fi";
 
 class Profile extends React.Component {
   state = {
@@ -54,17 +57,19 @@ class Profile extends React.Component {
     return (
       // <div className="pt-40">Okay</div>
       <section className="profil pt-20">
-        <div className="container mx-auto">
+        <div className="container mx-auto pb-20">
           <h3 className="text-4xl font-bold text-white py-10 text-shadow">
             User Profil
           </h3>
-          <div className="data grid grid-cols-3 gap-x-8 gap-y-20">
+          <div className="data grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-20">
             <div className="flex flex-col justify-between items-center py-10 h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
               <div className="relative">
-                <div className="overflow-hidden h-28 w-28 bg-blue-200 rounded-full"></div>
-                <div className="absolute flex justify-center items-center -mt-10 ml-20 h-10 w-10 bg-yellow-900 rounded-full">
-                  <i className="fas fa-pencil-alt text-white"></i>
+                <div className="overflow-hidden h-28 w-28 bg-blue-200 rounded-full">
+                  <img src={gajeel} alt="My Profile" />
                 </div>
+                <button className="absolute flex justify-center items-center -mt-10 ml-20 h-10 w-10 bg-yellow-900 hover:bg-yellow-700 rounded-full">
+                  <FiEdit2 size={20} color="#fff" />
+                </button>
               </div>
               <div>
                 <h4 className="text-2xl font-bold text-center">
@@ -75,19 +80,19 @@ class Profile extends React.Component {
 
               <p>Let's order your product now!</p>
             </div>
-            <div className="col-span-2">
+            <div className="lg:col-span-2">
               <div className="h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
                 <div className="flex flex-col justify-between h-full px-5 pt-5 pb-10">
                   <div className="flex justify-between items-center">
                     <h3 className="text-3xl font-bold text-gray-600">
                       Contacts
                     </h3>
-                    <div className="flex justify-center items-center h-12 w-12 bg-yellow-900 rounded-full">
-                      <i className="fas fa-pencil-alt text-white"></i>
-                    </div>
+                    <button className="flex justify-center items-center h-12 w-12 bg-yellow-900 hover:bg-yellow-700 rounded-full">
+                      <FiEdit2 size={20} color="#fff" />
+                    </button>
                   </div>
-                  <div className="grid grid-cols-2 gap-x-10 gap-y-16">
-                    <div>
+                  <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-10">
+                    <div className="md:flex-1">
                       <p className="text-xl text-gray-400">Email address :</p>
                       <input
                         onChange={(e) =>
@@ -96,10 +101,10 @@ class Profile extends React.Component {
                         className="py-2 w-full border-b border-black  placeholder-gray-700"
                         type="email"
                         name="email"
-                        placeholder={data.email}
+                        // placeholder={data.email}
                       />
                     </div>
-                    <div>
+                    <div className="md:flex-1">
                       <p className="text-xl text-gray-400">Mobile Number :</p>
                       <input
                         className="py-2 w-full border-b border-black placeholder-gray-700"
@@ -121,16 +126,16 @@ class Profile extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col-span-2">
+            <div className="lg:col-span-2">
               <div className="h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
                 <div className="flex flex-col justify-between h-full px-5 pt-5 pb-10">
                   <div className="flex justify-between items-center">
                     <h3 className="text-3xl font-bold text-gray-600">
                       Details
                     </h3>
-                    <div className="flex justify-center items-center h-12 w-12 bg-yellow-900 rounded-full">
-                      <i className="fas fa-pencil-alt text-white"></i>
-                    </div>
+                    <button className="flex justify-center items-center h-12 w-12 bg-yellow-900 hover:bg-yellow-700 rounded-full">
+                      <FiEdit2 size={20} color="#fff" />
+                    </button>
                   </div>
                   <div className="grid grid-cols-3 gap-x-5 gap-y-5">
                     <div className="col-span-2">
