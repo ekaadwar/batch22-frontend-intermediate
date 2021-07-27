@@ -1,6 +1,7 @@
 import React from "react";
 import { BsPersonFill } from "react-icons/bs";
-import { MdLocationOn, MdFavoriteBorder } from "react-icons/md";
+import { MdLocationOn, MdFavoriteBorder, MdCheckCircle } from "react-icons/md";
+import teamWork from "../../assets/teamWork.png";
 
 class Home extends React.Component {
   render() {
@@ -67,15 +68,15 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2">
-              <div className="h-full">
+            <div className="flex flex-row items-center my-20 ">
+              <div className="hidden lg:inline-block flex-1 h-full">
                 <img
                   className="w-full self-center"
-                  src="img/general/advantages.jpg"
+                  src={teamWork}
                   alt="Team Work"
                 />
               </div>
-              <div className="px-10">
+              <div className="flex-1 px-10">
                 <div className="self-center">
                   <h1 className="text-4xl font-bold mb-5">
                     We Provide Good Coffe
@@ -87,12 +88,25 @@ class Home extends React.Component {
                     their own taste and make your day better.
                   </p>
                   <ul>
-                    <li>High quality beans</li>
-                    <li>Healthy meals, you can request the ingredients</li>
-                    <li>
-                      Chat with our staff to get better experience for ordering
+                    <li className="flex flex-row items-center">
+                      <MdCheckCircle size={20} color="#2FAB73" />
+                      <p>High quality beans</p>
                     </li>
-                    <li>Free member card a minimum purchase of IDR 200.000</li>
+                    <li className="flex flex-row items-center">
+                      <MdCheckCircle size={20} color="#2FAB73" />
+                      <p>Healthy meals, you can request the ingredients</p>
+                    </li>
+                    <li className="flex flex-row items-center">
+                      <MdCheckCircle size={20} color="#2FAB73" />
+                      <p>
+                        Chat with our staff to get better experience for
+                        ordering
+                      </p>
+                    </li>
+                    <li className="flex flex-row items-center">
+                      <MdCheckCircle size={20} color="#2FAB73" />
+                      <p>Free member card a minimum purchase of IDR 200.000</p>
+                    </li>
                   </ul>
                 </div>
               </div>
