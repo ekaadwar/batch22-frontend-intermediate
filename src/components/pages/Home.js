@@ -1,7 +1,22 @@
 import React from "react";
 import { BsPersonFill } from "react-icons/bs";
-import { MdLocationOn, MdFavoriteBorder, MdCheckCircle } from "react-icons/md";
+import {
+  MdLocationOn,
+  MdFavoriteBorder,
+  MdCheckCircle,
+  MdCheck,
+  MdStar,
+} from "react-icons/md";
 import teamWork from "../../assets/teamWork.png";
+import hazelnutLatte from "../../assets/hazelnutLatte.png";
+import pinkyPromise from "../../assets/pinkyPromise.png";
+import chikenWing from "../../assets/chikenWing.png";
+import logoSportify from "../../assets/logoSportify.png";
+import logoAmazon from "../../assets/logoAmazon.png";
+import logoDiscord from "../../assets/logoDiscord.png";
+import logoNetflix from "../../assets/logoNetflix.png";
+import logoReddit from "../../assets/logoReddit.png";
+import asianBeauty from "../../assets/asianBeauty.png";
 
 class Home extends React.Component {
   render() {
@@ -127,11 +142,17 @@ class Home extends React.Component {
                 be your tool
               </p>
             </div>
-            <div className="flex flex-row">
-              <div className="flex-1 flex justify-center">
-                <div className="flex flex-col favo-sect border border-gray-300 rounded-l hover:border-yellow-500 bg-white w-3/4">
+            <div className="flex flex-col lg:flex-row space-y-10 lg:space-y-0 items-center">
+              <div className="flex-1 w-full flex justify-center">
+                <div className="flex flex-col w-full max-w-xs favo-sect border border-gray-300 rounded-xl hover:border-yellow-500 bg-white">
                   <div className="picture flex items-center">
-                    <div className="favo-img bg-blue-200 rounded-full"></div>
+                    <div className="flex justify-center items-center favo-img bg-blue-200 rounded-full overflow-hidden">
+                      <img
+                        className="w-full"
+                        src={hazelnutLatte}
+                        alt="Hazelnut Latte"
+                      />
+                    </div>
                   </div>
                   <div className="list">
                     <div className="leading-10">
@@ -139,10 +160,22 @@ class Home extends React.Component {
                         Hazelnut Latte
                       </h1>
                       <ul>
-                        <li>Hazelnut Syrup</li>
-                        <li>Vanila Whipped Cream</li>
-                        <li>Ice/Hot</li>
-                        <li>Sliced Banana on Top</li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Hazelnut Syrup</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Vanila Whipped Cream</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Ice/Hot</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Sliced Banana on Top</p>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -157,10 +190,16 @@ class Home extends React.Component {
                 </div>
               </div>
 
-              <div className="flex-1 flex justify-center">
-                <div className="flex flex-col favo-sect border border-gray-300 rounded-l hover:border-yellow-500 bg-white w-3/4">
+              <div className="flex-1 w-full flex justify-center">
+                <div className="flex flex-col w-full max-w-xs favo-sect border border-gray-300 rounded-xl hover:border-yellow-500 bg-white">
                   <div className="picture flex items-center">
-                    <div className="favo-img bg-blue-200 rounded-full"></div>
+                    <div className="flex justify-center items-center favo-img bg-blue-200 rounded-full overflow-hidden">
+                      <img
+                        className="w-full"
+                        src={pinkyPromise}
+                        alt="Pinky Promise"
+                      />
+                    </div>
                   </div>
                   <div className="list">
                     <div className="leading-10">
@@ -168,11 +207,26 @@ class Home extends React.Component {
                         Pinky Promise
                       </h1>
                       <ul>
-                        <li>1 Shot of Coffe</li>
-                        <li>Vanila Whipped Cream</li>
-                        <li>Chocolate Biscuit</li>
-                        <li>Stawberry Syrup</li>
-                        <li>Sliced Stawberry on Top</li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">1 Shot of Coffe</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Vanila Whipped Cream</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Chocolate Biscuit</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Stawberry Syrup</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Sliced Stawberry on Top</p>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -187,10 +241,16 @@ class Home extends React.Component {
                 </div>
               </div>
 
-              <div className="flex-1 flex justify-center">
-                <div className="flex flex-col favo-sect border border-gray-300 rounded-l hover:border-yellow-500 bg-white w-3/4">
+              <div className="flex-1 w-full flex justify-center">
+                <div className="flex flex-col w-full max-w-xs favo-sect border border-gray-300 rounded-xl hover:border-yellow-500 bg-white">
                   <div className="picture flex items-center">
-                    <div className="favo-img bg-blue-200 rounded-full"></div>
+                    <div className="flex justify-center items-center favo-img bg-blue-200 rounded-full overflow-hidden">
+                      <img
+                        className="w-full"
+                        src={chikenWing}
+                        alt="Chicken Wing"
+                      />
+                    </div>
                   </div>
                   <div className="list">
                     <div className="leading-10">
@@ -198,12 +258,30 @@ class Home extends React.Component {
                         Chicken Wings
                       </h1>
                       <ul>
-                        <li>Wings</li>
-                        <li>Drum Sticks</li>
-                        <li>Mayonaise and Lemon</li>
-                        <li>Hot Fried</li>
-                        <li>Secret Recipe</li>
-                        <li>Buy 1 Get 1 only Dine in</li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Wings</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Drum Sticks</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Mayonaise and Lemon</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Hot Fried</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Secret Recipe</p>
+                        </li>
+                        <li className="flex flex-row items-center">
+                          <MdCheck size={20} color="#2FAB73" />
+                          <p className="ml-5">Buy 1 Get 1 only Dine in</p>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -247,12 +325,22 @@ class Home extends React.Component {
             <h3 className="font-bold text-3xl pt-20 w-1/3 mx-auto mb-16">
               Our Partner
             </h3>
-            <div className="flex justify-around">
-              <img src="img/logo/Rectangle274.png" alt="netflix" />
-              <img src="img/logo/Rectangle275.png" alt="reddit" />
-              <img src="img/logo/Rectangle276.png" alt="amazon" />
-              <img src="img/logo/Rectangle277.png" alt="discord" />
-              <img src="img/logo/Rectangle278.png" alt="Sportify" />
+            <div className="flex justify-around space-x-16 flex-wrap">
+              <div className="flex-1">
+                <img src={logoNetflix} alt="netflix" />
+              </div>
+              <div className="flex-1">
+                <img src={logoReddit} alt="reddit" />
+              </div>
+              <div className="flex-1">
+                <img src={logoAmazon} alt="amazon" />
+              </div>
+              <div className="flex-1">
+                <img src={logoDiscord} alt="discord" />
+              </div>
+              <div className="flex-1">
+                <img src={logoSportify} alt="Sportify" />
+              </div>
             </div>
           </div>
         </section>
@@ -261,7 +349,7 @@ class Home extends React.Component {
         {/* <!-- section testimony --> */}
         <section id="testimony" className="testimony bg-gray-100 pb-52">
           <div className="container mx-auto space-y-7 text-center">
-            <h3 className="font-bold text-3xl pt-20 w-96 mx-auto">
+            <h3 className="font-bold text-3xl pt-20 mx-auto">
               Loved by Thousand of Happy Customer
             </h3>
             <p className="sub-judul mx-auto">
@@ -275,15 +363,18 @@ class Home extends React.Component {
                     <div className="flex items-center">
                       <img
                         className="h-9 w-9"
-                        src="img/profile/robert.png"
+                        src={asianBeauty}
                         alt="Viezh Robert"
                       />
                       <div className="pl-5">
-                        <h4 className="text-l font-bold">Viezh Robert</h4>
-                        <h5>Warsaw, Polad</h5>
+                        <h4 className="text-l font-bold">Yessica Christy</h4>
+                        <h5>Shanxi, China</h5>
                       </div>
                     </div>
-                    <p className="justify-self-end">4.5</p>
+                    <div className="flex flex-row items-center">
+                      <span>4.5</span>
+                      <MdStar color="#fbbf24" />
+                    </div>
                   </div>
                   <div className="flex items-center h-full">
                     <p>
@@ -298,15 +389,18 @@ class Home extends React.Component {
                     <div className="flex items-center">
                       <img
                         className="h-9 w-9"
-                        src="img/profile/robert.png"
+                        src={asianBeauty}
                         alt="Viezh Robert"
                       />
                       <div className="pl-5">
-                        <h4 className="text-l font-bold">Viezh Robert</h4>
-                        <h5>Warsaw, Polad</h5>
+                        <h4 className="text-l font-bold">Yessica Christy</h4>
+                        <h5>Shanxi, China</h5>
                       </div>
                     </div>
-                    <p className="justify-self-end">4.5</p>
+                    <div className="flex flex-row items-center">
+                      <span>4.5</span>
+                      <MdStar color="#fbbf24" />
+                    </div>
                   </div>
                   <div className="flex items-center h-full">
                     <p>
@@ -321,15 +415,18 @@ class Home extends React.Component {
                     <div className="flex items-center">
                       <img
                         className="h-9 w-9"
-                        src="img/profile/robert.png"
+                        src={asianBeauty}
                         alt="Viezh Robert"
                       />
                       <div className="pl-5">
-                        <h4 className="text-l font-bold">Viezh Robert</h4>
-                        <h5>Warsaw, Polad</h5>
+                        <h4 className="text-l font-bold">Yessica Christy</h4>
+                        <h5>Shanxi, China</h5>
                       </div>
                     </div>
-                    <p className="justify-self-end">4.5</p>
+                    <div className="flex flex-row items-center">
+                      <span>4.5</span>
+                      <MdStar color="#fbbf24" />
+                    </div>
                   </div>
                   <div className="flex items-center h-full">
                     <p>
