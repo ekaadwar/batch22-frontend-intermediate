@@ -17,6 +17,8 @@ import Login from "./components/pages/Login";
 import Signup from "./components/pages/Signup";
 import Profile from "./components/pages/Profile";
 
+import TestNav from "./testing/Navbar";
+
 import { connect } from "react-redux";
 
 class App extends React.Component {
@@ -44,6 +46,7 @@ class App extends React.Component {
             <PrivateRoute path="/cart">
               <Cart />
             </PrivateRoute>
+            <Route path="/testing/navbar" />
           </Switch>
         </Router>
 
