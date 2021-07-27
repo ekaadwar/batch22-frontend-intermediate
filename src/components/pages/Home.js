@@ -1,4 +1,6 @@
 import React from "react";
+import { BsPersonFill } from "react-icons/bs";
+import { MdLocationOn, MdFavoriteBorder } from "react-icons/md";
 
 class Home extends React.Component {
   render() {
@@ -6,26 +8,28 @@ class Home extends React.Component {
       <>
         {/* <!-- section jumbotron --> */}
         <section className="jumbotron">
-          <div className="container mx-auto">
-            <form className="py-5 lg:text-right">
-              <input
-                className="pl-5 py-2 rounded-full w-full lg:w-1/4"
-                type="text"
-                name="search"
-                placeholder="Search"
-              />
-            </form>
-            <div className="lg:w-1/2 text-white">
-              <h1 className="text-3xl">Start Your Day with</h1>
-              <h1 className="text-3xl">Coffee and Good Meals</h1>
-              <p className="text-lg lg:text-xl mt-10">
-                We provide high quality beans, good taste, and healthy meals
-                made by love just for you. Start your day with us for a bigger
-                smile!
-              </p>
-              <button className="bg-yellow-500 hover:bg-yellow-300 text-xl mt-10 px-10 py-2 text-yellow-900 font-bold">
-                Get Started
-              </button>
+          <div className="container mx-auto h-full">
+            <div className="flex flex-col h-full">
+              <form className="py-5 lg:text-right">
+                <input
+                  className="pl-5 py-2 rounded-full w-full lg:w-1/4"
+                  type="text"
+                  name="search"
+                  placeholder="Search"
+                />
+              </form>
+              <div className="flex flex-col justify-center h-3/4 lg:w-1/2 text-white ">
+                <h1 className="text-3xl">Start Your Day with</h1>
+                <h1 className="text-3xl">Coffee and Good Meals</h1>
+                <p className="text-lg lg:text-xl mt-10">
+                  We provide high quality beans, good taste, and healthy meals
+                  made by love just for you. Start your day with us for a bigger
+                  smile!
+                </p>
+                <button className="w-60 bg-yellow-500 hover:bg-yellow-300 text-xl mt-10 px-10 py-2 text-yellow-900 font-bold rounded-lg">
+                  Get Started
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -34,28 +38,28 @@ class Home extends React.Component {
         {/* <!-- section advantages --> */}
         <section id="advantages">
           <div className="container mx-auto grid h-full w-full">
-            <div className="report bg-white grid grid-cols-3 rounded-xl mx-auto">
-              <div className="grid grid-cols-2 self-center">
-                <div className="box-advent rounded-full">
-                  <i className="fas fa-user"></i>
+            <div className="flex flex-col lg:flex-row space-y-10 lg:space-y-0 justify-center lg:justify-around px-10 -mt-40 lg:-mt-20 h-80 lg:h-40 w-60 lg:w-full bg-white rounded-xl mx-auto shadow-xl">
+              <div className="flex flex-row items-center space-x-5">
+                <div className="flex justify-center items-center h-12 w-12 rounded-full bg-yellow-500">
+                  <BsPersonFill size={30} color="#78350f" />
                 </div>
                 <div>
                   <h1>90+</h1>
                   <p>Staff</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 self-center">
-                <div className="box-advent rounded-full">
-                  <i className="fas fa-map-marker-alt"></i>
+              <div className="flex flex-row items-center space-x-5">
+                <div className="flex justify-center items-center h-12 w-12 rounded-full bg-yellow-500">
+                  <MdLocationOn size={30} color="#78350f" />
                 </div>
                 <div>
                   <h1>30+</h1>
                   <p>Store</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 self-center">
-                <div className="box-advent rounded-full">
-                  <i className="fas fa-heart"></i>
+              <div className="flex flex-row items-center space-x-5">
+                <div className="flex justify-center items-center h-12 w-12 rounded-full bg-yellow-500">
+                  <MdFavoriteBorder size={30} color="#78350f" />
                 </div>
                 <div>
                   <h1>800+</h1>
