@@ -7,21 +7,18 @@ class Home extends React.Component {
         {/* <!-- section jumbotron --> */}
         <section className="jumbotron">
           <div className="container mx-auto">
-            <form className="pt-5 text-right">
-              <button className="bg-white leading-10 px-5 rounded-l-full">
-                <i className="fa fa-search"></i>
-              </button>
+            <form className="py-5 lg:text-right">
               <input
-                className="leading-10 pl-5 rounded-r-full"
+                className="pl-5 py-2 rounded-full w-full lg:w-1/4"
                 type="text"
                 name="search"
                 placeholder="Search"
               />
             </form>
-            <div className="w-1/2 text-white">
-              <h1>Start Your Day with</h1>
-              <h1>Coffee and Good Meals</h1>
-              <p className="text-xl mt-10">
+            <div className="lg:w-1/2 text-white">
+              <h1 className="text-3xl">Start Your Day with</h1>
+              <h1 className="text-3xl">Coffee and Good Meals</h1>
+              <p className="text-lg lg:text-xl mt-10">
                 We provide high quality beans, good taste, and healthy meals
                 made by love just for you. Start your day with us for a bigger
                 smile!

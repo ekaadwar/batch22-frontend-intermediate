@@ -55,7 +55,7 @@ section .font-poppins {
 
 section.jumbotron,
 section.adventages {
-  height: 650px;
+  height: 750px;
 }
 
 section.auth,
@@ -121,8 +121,12 @@ nav button {
   text-shadow: 2px 2px 8px #000000;
 }
 
-.jumbotron h1 {
-  font-size: 50px;
+@media only screen and (min-width: 1024px) {
+  /* For tablets: */
+  .jumbotron h1 {
+    font-size: 50px;
+    line-height: 75px;
+  }
 }
 
 .jumbotron button.started {
