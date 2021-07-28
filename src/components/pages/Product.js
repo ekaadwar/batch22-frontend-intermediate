@@ -19,9 +19,9 @@ class Product extends React.Component {
       <section className="product pt-20">
         <div className="border-t border-gray-300">
           <div className="container mx-auto">
-            <div className="content flex h-auto divide-x divide-gray-300 divide-solid">
+            <div className="flex h-auto divide-x divide-gray-300 divide-solid">
               {/* <!-- bagian kiri --> */}
-              <div className="side flex flex-col justify-between py-10">
+              <div className="side content  flex flex-col justify-between py-10">
                 {/* <!-- bagian promo --> */}
                 <div className="space-y-5">
                   <div className="text-center">
