@@ -38,7 +38,7 @@ class Cart extends React.Component {
 
     const total = subTotal + tax + shipping;
     return (
-      <section className="cart pt-20 h-screen">
+      <section className="cart py-20">
         <div className="container flex justify-center mx-auto h-full">
           <div className="inline-block space-y-10">
             <h2 className="text-3xl font-bold text-white text-shadow w-auto">
@@ -46,9 +46,9 @@ class Cart extends React.Component {
               <br />
               item now!
             </h2>
-            <div className="cart-body flex space-x-20">
+            <div className="cart-body flex flex-col lg:flex-row space-y-10 lg:space-y-0 lg:space-x-20">
               <div>
-                <div className="order flex flex-col justify-between h-full w-72 px-5 py-16 bg-white rounded-2xl text-sm">
+                <div className="flex flex-col justify-between h-full w-72 px-5 py-16 bg-white rounded-2xl text-sm">
                   <h3 className="text-xl font-bold text-center text-yellow-900">
                     Order Summary
                   </h3>
@@ -82,7 +82,7 @@ class Cart extends React.Component {
                 </div>
               </div>
               <div>
-                <form className="flex flex-col justify-between h-full w-72">
+                <form className="flex flex-col space-y-10 lg:space-y-0 justify-between h-full w-72">
                   <div>
                     <div className="flex justify-between items-center text-white font-bold">
                       <h4 className="text-shadow">Address details</h4>

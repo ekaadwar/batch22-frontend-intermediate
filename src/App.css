@@ -87,7 +87,7 @@ section.forgot {
 }
 
 section.cart {
-  height: 800px;
+  min-height: 800px;
   background-image: url("./img/general/cart.png");
 }
 
@@ -261,7 +261,7 @@ section.cart .grid .item {
 }
 
 section.cart .cart-body {
-  height: 500px;
+  min-height: 500px;
 }
 
 section.profil .data {
