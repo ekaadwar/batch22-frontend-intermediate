@@ -47,14 +47,14 @@ class DetailProduct extends React.Component {
     // const total = subTotal + tax + shipping;
     return (
       <section className="detailProduct pt-20 pb-40 bg-gray-200">
-        <div className="relaive container mx-auto">
+        <div className="container mx-auto">
           <p className="font-bold">
             <span className="text-gray-500 pr-2">Favorite & Promo</span>
             <span className="text-yellow-900">{details?.name}</span>
           </p>
-          <div className="font-poppins grid grid-cols-9">
+          <div className="font-poppins grid grid-cols-1 lg:grid-cols-9">
             <div className="col-span-4">
-              <div className="pt-24 pr-24">
+              <div className="py-24 lg:pr-24">
                 <div className="flex flex-col items-center space-y-16">
                   <div className="overflow-hidden h-80 w-80 bg-gray-700 rounded-full"></div>
                   <div className="space-y-7 text-center">
@@ -149,11 +149,11 @@ class DetailProduct extends React.Component {
               </div>
             </div>
           </div>
-          <div className="container h-40 mt-20 mx-auto font-poppins">
-            <div className="px-24 h-full">
-              <div className="grid grid-cols-3 gap-24 h-full">
-                <div className="col-span-2 h-full px-10 bg-white rounded-2xl shadow-lg">
-                  <div className="flex justify-between items-center h-full">
+          <div className="container lg:h-40 mt-20 mx-auto font-poppins">
+            <div className="lg:px-24 h-full">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-24 h-full">
+                <div className="lg:col-span-2 h-full px-10 bg-white rounded-2xl shadow-lg">
+                  <div className="flex flex-row justify-between items-center h-full py-20">
                     <div className="flex space-x-10">
                       <div className="h-24 w-24 overflow-hidden rounded-full bg-gray-500"></div>
                       <div>
@@ -178,7 +178,7 @@ class DetailProduct extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center items-center h-full bg-yellow-400 hover:bg-yellow-500 rounded-2xl shadow-lg text-2xl font-bold">
+                <div className="py-5 flex justify-center items-center h-full bg-yellow-400 hover:bg-yellow-500 rounded-2xl shadow-lg text-2xl font-bold">
                   CHEKOUT
                 </div>
               </div>
