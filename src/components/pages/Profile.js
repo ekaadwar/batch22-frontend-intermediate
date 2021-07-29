@@ -63,11 +63,11 @@ class Profile extends React.Component {
           </h3>
           <div className="data grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-20">
             <div className="flex flex-col justify-between items-center py-10 h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
-              <div className="relative">
+              <div className="z-10 relative">
                 <div className="overflow-hidden h-28 w-28 bg-blue-200 rounded-full">
                   <img src={gajeel} alt="My Profile" />
                 </div>
-                <button className="absolute flex justify-center items-center -mt-10 ml-20 h-10 w-10 bg-yellow-900 hover:bg-yellow-700 rounded-full">
+                <button className="z-10 absolute flex justify-center items-center -mt-10 ml-20 h-10 w-10 bg-yellow-900 hover:bg-yellow-700 rounded-full">
                   <FiEdit2 size={20} color="#fff" />
                 </button>
               </div>
