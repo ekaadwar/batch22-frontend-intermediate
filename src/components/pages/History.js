@@ -12,8 +12,8 @@ class History extends React.Component {
             Select item to delete
           </p>
           <p className="text-xl text-white text-shadow text-right">Delete</p>
-          <div className="grid grid-cols-3 gap-x-3 gap-y-5">
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-3 gap-y-5  bg-red-500">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -32,7 +32,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -51,7 +51,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -70,7 +70,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -89,7 +89,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -108,7 +108,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -127,7 +127,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -146,7 +146,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -165,7 +165,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -184,7 +184,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -203,7 +203,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -222,7 +222,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -241,7 +241,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -260,7 +260,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
@@ -279,7 +279,7 @@ class History extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between p-5 bg-white rounded-2xl">
+            <div className="max-w-md flex justify-between p-5 bg-white rounded-2xl">
               <div className="h-20 w-20 overflow-hidden rounded-full bg-gray-300">
                 <img
                   className="w-full"
