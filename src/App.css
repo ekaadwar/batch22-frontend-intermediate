@@ -62,7 +62,8 @@ section.auth,
 section.forgot,
 section.cart,
 section.profil,
-section.history {
+section.history,
+section.chat {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -70,7 +71,8 @@ section.history {
 section.forgot,
 section.cart,
 section.profil,
-section.history {
+section.history,
+section.chat {
   background-size: cover;
 }
 
@@ -99,6 +101,11 @@ section.profil {
 
 section.history {
   background-image: url("./img/general/history.png");
+}
+
+section.chat {
+  min-height: 1100px;
+  background-image: url("./img/general/meetUp.png");
 }
 
 nav button {

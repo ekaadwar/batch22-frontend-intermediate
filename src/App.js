@@ -16,8 +16,9 @@ import History from "./components/pages/History";
 import Login from "./components/pages/Login";
 import Signup from "./components/pages/Signup";
 import Profile from "./components/pages/Profile";
+import Chat from "./components/pages/Chat";
 
-import TestNav from "./testing/Navbar";
+// import TestNav from "./testing/Navbar";
 
 import { connect } from "react-redux";
 
@@ -34,9 +35,6 @@ class App extends React.Component {
             <Route path="/products/:id" component={ProductDetail} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            {/* <Route path="/history" component={History} /> */}
-            {/* <Route path="/profile" component={Profile} /> */}
-            {/* <Route path="/cart" component={Cart} /> */}
             <PrivateRoute path="/history">
               <History />
             </PrivateRoute>
@@ -45,6 +43,9 @@ class App extends React.Component {
             </PrivateRoute>
             <PrivateRoute path="/cart">
               <Cart />
+            </PrivateRoute>
+            <PrivateRoute path="/chat">
+              <Chat />
             </PrivateRoute>
             <Route path="/testing/navbar" />
           </Switch>
