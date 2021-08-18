@@ -18,7 +18,7 @@ const Navbar = ({ auth }) => {
   }
 
   return (
-    <nav className="z-40 py-4 fixed bg-white w-full shadow-md">
+    <nav className="z-40 h-20 py-4 fixed bg-white w-full shadow-md">
       <div className="container mx-auto">
         <div className="flex justify-between">
           <div>
