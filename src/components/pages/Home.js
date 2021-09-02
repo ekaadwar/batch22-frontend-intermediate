@@ -1,4 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { clearAuth } from "../../redux/action/auth";
+
 import { BsPersonFill } from "react-icons/bs";
 import {
   MdLocationOn,
@@ -7,6 +11,7 @@ import {
   MdCheck,
   MdStar,
 } from "react-icons/md";
+
 import teamWork from "../../assets/teamWork.png";
 import hazelnutLatte from "../../assets/hazelnutLatte.png";
 import pinkyPromise from "../../assets/pinkyPromise.png";
@@ -19,6 +24,10 @@ import logoReddit from "../../assets/logoReddit.png";
 import asianBeauty from "../../assets/asianBeauty.png";
 
 class Home extends React.Component {
+  componentDidMount() {
+    this.props.clearAuth();
+  }
+
   render() {
     return (
       <>
@@ -319,7 +328,6 @@ class Home extends React.Component {
         </section>
         {/* <!-- akhir section spot --> */}
 
-        {/* <!-- section partner --> */}
         <section id="partner" className="bg-gray-100 pb-10">
           <div className="container mx-auto text-center">
             <h3 className="font-bold text-3xl pt-20 w-1/3 mx-auto mb-16">
@@ -344,9 +352,7 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
-        {/* <!-- akhir section partner --> */}
 
-        {/* <!-- section testimony --> */}
         <section id="testimony" className="testimony bg-gray-100 pb-52">
           <div className="container mx-auto space-y-7 text-center">
             <h3 className="font-bold text-3xl pt-20 mx-auto">
@@ -457,10 +463,15 @@ class Home extends React.Component {
           </div>
           <div></div>
         </section>
-        {/* <!-- akhir section testimony --> */}
       </>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = { clearAuth };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

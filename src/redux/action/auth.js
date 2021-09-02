@@ -8,6 +8,12 @@ export const toggleAuth = () => {
   };
 };
 
+export const clearAuth = () => {
+  return {
+    type: "CLEAR_AUTH_TOGGLE",
+  };
+};
+
 export const authLogin = (email, password) => {
   return async (dispatch) => {
     const form = new URLSearchParams();

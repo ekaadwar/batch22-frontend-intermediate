@@ -13,6 +13,12 @@ const auth = (state = initialState, action) => {
         onAuth: !state.onAuth,
       };
     }
+    case "CLEAR_AUTH_TOGGLE": {
+      return {
+        ...state,
+        onAuth: false,
+      };
+    }
     case "AUTH_LOGIN": {
       return {
         ...state,

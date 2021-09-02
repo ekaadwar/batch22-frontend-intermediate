@@ -25,10 +25,12 @@ import { connect } from "react-redux";
 class App extends React.Component {
   render() {
     const { onAuth } = this.props.auth;
+    console.log(onAuth);
     return (
       <>
         <Router>
-          {!onAuth && <Navbar image={Logo} />}
+          {onAuth === false && <Navbar image={Logo} />}
+          {/* <Navbar image={Logo} /> */}
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/product" component={Product} />
