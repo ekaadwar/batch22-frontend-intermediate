@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import PrivateRoute from "./components/PrivateRoute";
 
-import Navbar from "./components/sections/Navbar";
-import Footer from "./components/sections/Footer";
+import Navbar from "./components/components/Navbar";
+import Footer from "./components/components/Footer";
 import Logo from "./img/logo/coffee.png";
 
 import Home from "./components/pages/Home";
@@ -17,8 +17,6 @@ import Login from "./components/pages/Login";
 import Signup from "./components/pages/Signup";
 import Profile from "./components/pages/Profile";
 import Chat from "./components/pages/Chat";
-
-// import TestNav from "./testing/Navbar";
 
 import { connect } from "react-redux";
 
