@@ -4,6 +4,7 @@ import carts from "./carts";
 import auth from "./auth";
 import items from "./items";
 import profile from "./profile";
+import chatList from "./chatList";
 
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   auth: persistReducer(persisAuth, auth),
   items,
   profile,
+  chatList,
 });
 
 export default reducer;

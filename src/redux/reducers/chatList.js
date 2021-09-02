@@ -1,3 +1,9 @@
+// import React from "react";
+
+import jason from "../../img/profile/jason.png";
+import cheryn from "../../img/profile/cheryn.png";
+import lou from "../../img/profile/lou.png";
+
 const initialState = [
   {
     image: cheryn,
@@ -32,3 +38,10 @@ const initialState = [
     message: "Hello :)",
   },
 ];
+
+const chatList = (state = initialState) => {
+  console.log(state);
+  return state;
+};
+
+export default chatList;
