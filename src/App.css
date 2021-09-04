@@ -45,9 +45,9 @@ section .font-poppins {
   font-family: "Poppins", sans-serif;
 }
 
-.container {
+/* .container {
   width: 1100px;
-}
+} */
 
 .text-shadow {
   text-shadow: 2px 2px 4px #000000;

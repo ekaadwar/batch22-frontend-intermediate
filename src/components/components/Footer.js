@@ -1,12 +1,13 @@
 import React from "react";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 class Footer extends React.Component {
   render() {
     return (
       <>
         <footer className="bg-gray-200 py-10 border-t-2 border-gray-300">
-          <div className="container mx-auto">
-            <div className="flex flex-col lg:flex-row lg:justify-between items-center space-y-10">
+          <div className="md:container mx-auto">
+            <div className="flex flex-col md:flex-row md:justify-between items-center space-y-10">
               <div className="space-y-7">
                 <div className="flex items-center">
                   <img src={this.props.image} alt="Coffee Shop" />
@@ -18,13 +19,13 @@ class Footer extends React.Component {
                 </p>
                 <div className="flex space-x-3">
                   <div className="flex justify-center items-center h-8 w-8 bg-yellow-500 rounded-full">
-                    <i className="text-yellow-800 fab fa-facebook-f"></i>
+                    <FaFacebookF color="#783501" />
                   </div>
                   <div className="flex justify-center items-center h-8 w-8 bg-yellow-500 rounded-full">
-                    <i className="text-yellow-800 fab fa-twitter"></i>
+                    <FaTwitter color="#783501" />
                   </div>
                   <div className="flex justify-center items-center h-8 w-8 bg-yellow-500 rounded-full">
-                    <i className="text-yellow-800 fab fa-instagram"></i>
+                    <FaInstagram color="#783501" />
                   </div>
                 </div>
               </div>

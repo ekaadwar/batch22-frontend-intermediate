@@ -104,7 +104,7 @@ export default function Testimony() {
           </div>
           <div className="flex">
             <div className="flex justify-center items-center h-16 w-16 rounded-full border-4 border-yellow-800 hover:bg-yellow-800 mr-2">
-              <MdArrowBack />
+              <MdArrowBack color="#92400e" />
             </div>
             <div className="flex justify-center items-center h-16 w-16 rounded-full border-4 border-yellow-800 hover:bg-yellow-800">
               <MdArrowForward />
