@@ -19,9 +19,9 @@ class Product extends React.Component {
       <section className="product pt-20">
         <div className="border-t border-gray-300">
           <div className="container mx-auto">
-            <div className="flex h-auto divide-x divide-gray-300 divide-solid">
+            <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 md:divide-x divide-gray-300 divide-solid">
               {/* <!-- bagian kiri --> */}
-              <div className="side content  flex flex-col justify-between py-10">
+              <div className="content hidden md:flex md:flex-col md:justify-between py-10">
                 {/* <!-- bagian promo --> */}
                 <div className="space-y-5">
                   <div className="text-center">
@@ -73,36 +73,41 @@ class Product extends React.Component {
                   </ol>
                 </div>
               </div>
+
               {/* <!-- bagian kanan --> */}
-              <div className="main h-full">
-                <div className="flex flex-col justify-between w-full h-full p-10">
-                  <div className="mb-10">
-                    <ul className="flex justify-evenly">
-                      <li className="inline-block">Favorite Product</li>
-                      <li className="inline-block">Coffee</li>
-                      <li className="inline-block">Non Coffee</li>
-                      <li className="inline-block">Foods</li>
-                      <li className="inline-block">Add-on</li>
-                    </ul>
-                  </div>
-                  <div className="grid grid-cols-4 gap-y-16">
+              <div className="col-span-3  md:col-span-1 lg:col-span-2 h-full">
+                <div className="flex flex-col justify-between w-full h-full p-10 space-y-5">
+                  <ul className="hidden lg:flex justify-evenly items-start h-20 mb-10">
+                    <li className="inline-block cursor-pointer">
+                      Favorite Product
+                    </li>
+                    <li className="inline-block cursor-pointer">Coffee</li>
+                    <li className="inline-block cursor-pointer">Non Coffee</li>
+                    <li className="inline-block cursor-pointer">Foods</li>
+                    <li className="inline-block cursor-pointer">Add-on</li>
+                  </ul>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-y-16">
                     {data.map((items) => (
                       <Link
                         to={`/products/${items.id}`}
                         key={items.id.toString()}
                       >
-                        <div className="w-36 h-44 border rounded-2xl text-center bg-white">
-                          <div className="w-24 h-24 -mt-12 mb-5 bg-yellow-200 rounded-full mx-auto"></div>
-                          <div className="flex flex-col justify-between h-20">
-                            <h4 className="text-xl font-bold">{items.name}</h4>
-                            <h6 className="font-bold text-yellow-900">
-                              {items.price}
-                            </h6>
+                        <div className="flex flex-row justify-center w-full">
+                          <div className="w-28 lg:w-36 h-36 lg:h-44 min-h-full border rounded-2xl text-center bg-white shadow px-3">
+                            <div className="w-24 h-24 -mt-12 mb-5 bg-yellow-200 rounded-full mx-auto"></div>
+                            <div className="flex flex-col justify-between h-16 lg:h-20 text-sm">
+                              <h4 className="font-bold">{items.name}</h4>
+                              <h6 className="font-bold text-yellow-900">
+                                IDR {items.price}
+                              </h6>
+                            </div>
                           </div>
                         </div>
                       </Link>
                     ))}
                   </div>
+
                   <div className="text-center">
                     <button
                       className="py-3 px-5 bg-yellow-500 text-white rounded-md"

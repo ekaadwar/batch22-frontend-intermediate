@@ -224,11 +224,11 @@ p.sub-judul {
 }
 
 .product .container {
-  width: 1400px;
+  max-width: 1400px;
 }
 
 .product .content {
-  height: 900px;
+  min-height: 900px;
 }
 
 .product .side {
