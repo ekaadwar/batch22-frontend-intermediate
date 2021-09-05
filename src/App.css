@@ -276,6 +276,10 @@ section.profil .data {
   font-family: "Poppins", sans-serif;
 }
 
+section.profil .card {
+  min-height: 24rem;
+}
+
 .forgot .email {
   flex-grow: 3;
 }

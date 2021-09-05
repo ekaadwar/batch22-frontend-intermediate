@@ -57,11 +57,11 @@ class Profile extends React.Component {
     return (
       // <div className="pt-40">Okay</div>
       <section className="profil pt-20">
-        <div className="container mx-auto pb-20">
+        <div className="container mx-auto pb-20 px-5">
           <h3 className="text-4xl font-bold text-white py-10 text-shadow">
             User Profil
           </h3>
-          <div className="data grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-20">
+          <div className="data grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
             <div className="flex flex-col justify-between items-center py-10 h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
               <div className="z-10 relative">
                 <div className="overflow-hidden h-28 w-28 bg-blue-200 rounded-full">
@@ -80,9 +80,10 @@ class Profile extends React.Component {
 
               <p>Let's order your product now!</p>
             </div>
+
             <div className="lg:col-span-2">
-              <div className="h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
-                <div className="flex flex-col justify-between h-full px-5 pt-5 pb-10">
+              <div className="card w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
+                <div className="flex flex-col h-full px-5 pt-5 pb-10">
                   <div className="flex justify-between items-center">
                     <h3 className="text-3xl font-bold text-gray-600">
                       Contacts
@@ -91,43 +92,50 @@ class Profile extends React.Component {
                       <FiEdit2 size={20} color="#fff" />
                     </button>
                   </div>
-                  <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-10">
-                    <div className="md:flex-1">
-                      <p className="text-xl text-gray-400">Email address :</p>
-                      <input
-                        onChange={(e) =>
-                          this.setState({ email: e.target.value })
-                        }
-                        className="py-2 w-full border-b border-black  placeholder-gray-700"
-                        type="email"
-                        name="email"
-                        // placeholder={data.email}
-                      />
+
+                  <div className="flex-1 space-y-5">
+                    <div className="grid lg:grid-cols-2 gap-5 lg:mb-10">
+                      <div className="">
+                        <p className="text-xl text-gray-400">Email address :</p>
+                        <input
+                          onChange={(e) =>
+                            this.setState({ email: e.target.value })
+                          }
+                          className="py-2 w-full border-b border-black  placeholder-gray-700"
+                          type="email"
+                          name="email"
+                          // placeholder={data.email}
+                        />
+                      </div>
+
+                      <div className="">
+                        <p className="text-xl text-gray-400">Mobile Number :</p>
+                        <input
+                          className="py-2 w-full border-b border-black placeholder-gray-700"
+                          type="text"
+                          name="phone"
+                          placeholder={data.phone}
+                        />
+                      </div>
                     </div>
-                    <div className="md:flex-1">
-                      <p className="text-xl text-gray-400">Mobile Number :</p>
-                      <input
+
+                    <div>
+                      <p className="text-xl text-gray-400">Delivery Address:</p>
+                      <textarea
                         className="py-2 w-full border-b border-black placeholder-gray-700"
                         type="text"
-                        name="phone"
-                        placeholder={data.phone}
+                        name="address"
+                        placeholder={data.address}
+                        rows="3"
                       />
                     </div>
-                  </div>
-                  <div>
-                    <p className="text-xl text-gray-400">Delivery Address:</p>
-                    <input
-                      className="py-2 w-full border-b border-black placeholder-gray-700"
-                      type="text"
-                      name="address"
-                      placeholder={data.address}
-                    />
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="lg:col-span-2">
-              <div className="h-96 w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
+              <div className="card w-full bg-white border-b-8 border-yellow-900 rounded-2xl">
                 <div className="flex flex-col justify-between h-full px-5 pt-5 pb-10">
                   <div className="flex justify-between items-center">
                     <h3 className="text-3xl font-bold text-gray-600">
@@ -137,76 +145,82 @@ class Profile extends React.Component {
                       <FiEdit2 size={20} color="#fff" />
                     </button>
                   </div>
+
                   <div className="grid grid-cols-3 gap-x-5 gap-y-5">
-                    <div className="col-span-2">
-                      <p className="text-xl text-gray-400">Display Name</p>
-                      <input
-                        className="py-2 w-full border-b border-black  placeholder-gray-700"
-                        type="email"
-                        name="email"
-                        placeholder={data.name_shown}
-                      />
-                    </div>
-                    <div>
-                      <p className="text-xl text-gray-400">DD/MM/YY</p>
-                      <input
-                        className="py-2 w-full border-b border-black placeholder-gray-700"
-                        type="text"
-                        name="birth_date"
-                        placeholder={data.birth_date}
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <p className="text-xl text-gray-400">First Name:</p>
-                      <input
-                        className="py-2 w-full border-b border-black placeholder-gray-700"
-                        type="email"
-                        name="email"
-                        placeholder={data.name_first}
-                      />
-                    </div>
-                    <div className="row-span-2 space-y-5">
+                    <div className="col-span-3 sm:col-span-2 space-y-5">
                       <div>
+                        <p className="text-xl text-gray-400">Display Name</p>
                         <input
-                          type="radio"
-                          id="male"
-                          name="gender"
-                          placeholder="male"
-                          checked={data.gender === "male" && true}
+                          className="py-2 w-full border-b border-black  placeholder-gray-700"
+                          type="text"
+                          name="name"
+                          placeholder={data.name_shown}
                         />
-                        <label
-                          className="text-xl text-yellow-700 hover:text-yellow-900"
-                          for="male"
-                        >
-                          Male
-                        </label>
-                        <br />
                       </div>
-                      <div>
+                      <div className="">
+                        <p className="text-xl text-gray-400">First Name:</p>
                         <input
-                          type="radio"
-                          id="female"
-                          name="gender"
-                          placeholder="female"
-                          checked={data.gender === "female" && true}
+                          className="py-2 w-full border-b border-black placeholder-gray-700"
+                          type="text"
+                          name="firstName"
+                          placeholder={data.name_first}
                         />
-                        <label
-                          className="text-xl text-yellow-700 hover:text-yellow-900"
-                          for="female"
-                        >
-                          Female
-                        </label>
-                        <br />
+                      </div>
+                      <div className="">
+                        <p className="text-xl text-gray-400">Last Name:</p>
+                        <input
+                          className="py-2 w-full border-b border-black placeholder-gray-700"
+                          type="lastName"
+                          name="lastName"
+                          placeholder={data.name_last}
+                        />
                       </div>
                     </div>
-                    <div className="col-span-2">
-                      <p className="text-xl text-gray-400">Last Name:</p>
-                      <input
-                        className="py-2 w-full border-b border-black placeholder-gray-700"
-                        type="email"
-                        name="email"
-                        placeholder={data.name_last}
-                      />
+
+                    <div className="col-span-3 sm:col-span-1 grid grid-cols-2 gap-x-5">
+                      <div className="sm:col-span-2">
+                        <p className="text-xl text-gray-400">DD/MM/YY</p>
+                        <input
+                          className="py-2 w-full border-b border-black placeholder-gray-700"
+                          type="text"
+                          name="birth_date"
+                          placeholder={data.birth_date}
+                        />
+                      </div>
+                      <div className="sm:col-span-2 row-span-2 space-y-5">
+                        <div>
+                          <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            placeholder="male"
+                            checked={data.gender === "male" && true}
+                          />
+                          <label
+                            className="text-xl text-yellow-700 hover:text-yellow-900 ml-3"
+                            for="male"
+                          >
+                            Male
+                          </label>
+                          <br />
+                        </div>
+                        <div>
+                          <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            placeholder="female"
+                            checked={data.gender === "female" && true}
+                          />
+                          <label
+                            className="text-xl text-yellow-700 hover:text-yellow-900 ml-3"
+                            for="female"
+                          >
+                            Female
+                          </label>
+                          <br />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
