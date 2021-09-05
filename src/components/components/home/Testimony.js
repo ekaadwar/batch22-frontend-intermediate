@@ -1,4 +1,7 @@
 import React from "react";
+
+import NavButton from "../NavButton";
+
 import { MdStar, MdArrowBack, MdArrowForward } from "react-icons/md";
 import asianBeauty from "../../../assets/asianBeauty.png";
 
@@ -103,12 +106,8 @@ export default function Testimony() {
             <div className="h-4 w-4 rounded-full bg-gray-300 mr-3"></div>
           </div>
           <div className="flex">
-            <div className="flex justify-center items-center h-16 w-16 rounded-full border-4 border-yellow-800 hover:bg-yellow-800 mr-2">
-              <MdArrowBack color="#92400e" />
-            </div>
-            <div className="flex justify-center items-center h-16 w-16 rounded-full border-4 border-yellow-800 hover:bg-yellow-800">
-              <MdArrowForward />
-            </div>
+            <NavButton content="arrowBack" />
+            <NavButton content="arrowForward" />
           </div>
         </div>
       </div>

@@ -26,6 +26,12 @@ const auth = (state = initialState, action) => {
         token: action.payload.token,
       };
     }
+    case "CLEAR_AUTH_MESSAGE": {
+      return {
+        ...state,
+        errMsg: "",
+      };
+    }
     case "AUTH_LOGOUT": {
       return {
         ...state,

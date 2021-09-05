@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { toggleAuth, authLogin } from "../../redux/action/auth";
+import { toggleAuth, authLogin, clearAuthMsg } from "../../redux/action/auth";
 import { FcGoogle } from "react-icons/fc";
 
 class Login extends React.Component {
@@ -37,15 +37,15 @@ class Login extends React.Component {
     return (
       <section className="auth">
         <div className="container h-full mx-auto">
-          <div className="flex justify-end">
-            <div className="w-1/2 bg-white">
-              <div className="p-16 space-y-7">
+          <div className="grid md:grid-cols-2">
+            <div className="md:col-start-2 flex flex-row justify-center">
+              <div className="py-16 px-5 lg:px-16 space-y-7 w-full max-w-md">
                 <div className="flex justify-between mb-20">
                   <div className="flex items-center">
                     <Link
                       onClick={this.toHome}
                       to="/"
-                      className="text-l font-bold ml-3"
+                      className="text-l font-bold ml-2"
                     >
                       Eka Coffee
                     </Link>
@@ -58,8 +58,9 @@ class Login extends React.Component {
                   Login
                 </h3>
                 {errMsg !== "" && (
-                  <div className="bg-red-300 text-red-700 font-bold p-2 rounded-md ">
+                  <div className="flex flex-row w-full justify-between bg-red-300 text-red-700 font-bold p-2 rounded-md ">
                     {errMsg}
+                    <button onClick={this.props.clearAuthMsg}>x</button>
                   </div>
                 )}
                 <form onSubmit={this.onLogin} className="space-y-7">
@@ -115,6 +116,6 @@ class Login extends React.Component {
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
-const mapDispatchToProps = { toggleAuth, authLogin };
+const mapDispatchToProps = { toggleAuth, authLogin, clearAuthMsg };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

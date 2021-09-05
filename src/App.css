@@ -76,10 +76,11 @@ section.chat {
   background-size: cover;
 }
 
-section.auth {
-  height: 1100px;
-  background-image: url("./img/general/login.png");
-  background-size: 50%;
+@media (min-width: 768px) {
+  section.auth {
+    background-image: url("./img/general/login.png");
+    background-size: 50%;
+  }
 }
 
 section.forgot {

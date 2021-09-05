@@ -37,6 +37,12 @@ export const authLogin = (email, password) => {
   };
 };
 
+export const clearAuthMsg = () => {
+  return {
+    type: "CLEAR_AUTH_MESSAGE",
+  };
+};
+
 export const authLogout = () => ({
   type: "AUTH_LOGOUT",
 });
