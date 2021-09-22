@@ -2,7 +2,7 @@ import React from "react";
 
 import NavButton from "../NavButton";
 
-import { MdStar, MdArrowBack, MdArrowForward } from "react-icons/md";
+import { MdStar } from "react-icons/md";
 import asianBeauty from "../../../assets/asianBeauty.png";
 
 export default function Testimony() {
